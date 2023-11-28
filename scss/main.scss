@@ -1,0 +1,383 @@
+@import "variables";
+@import "function";
+@import "utilities";
+@import "item_grid";
+//General Styles
+
+* {
+  margin: 0;
+  padding: 0;
+  // box-sizing: border-box;
+}
+
+body {
+  background: $dark-color;
+  color: $light-color;
+  font-family: $font-stack;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-color;
+}
+
+ul {
+  list-style: none;
+}
+
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+img {
+  width: 100%;
+}
+
+//LOGO
+#logo {
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+//Main Nav
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    padding: 1rem 1.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    border-bottom: 3px transparent solid;
+    padding-bottom: 0.5rem;
+    transition: border-color 0.5s;
+
+    &:hover {
+      border-color: $md-color;
+    }
+    &.current {
+      border-color: $primary-color;
+    }
+  }
+}
+
+//Header
+#header {
+  &-home {
+    background: $bg-image no-repeat center right / cover;
+    height: 100vh;
+    color: #fff;
+
+    //Header content
+    .header-content {
+      text-align: center;
+      padding-top: 20%;
+
+      h1 {
+        font-size: 4rem;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  &-inner {
+    background: $bg-image no-repeat 20% 30% / cover;
+    height: 5.5rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
+
+// Home Sections
+#home {
+  &-a {
+    .specials {
+      margin-top: 3rem;
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(4, 1fr);
+
+      .fas {
+        color: $primary-color;
+        padding-bottom: 0.6rem;
+      }
+    }
+  }
+
+  &-b {
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      li {
+        line-height: 2;
+
+        &.stats-title {
+          font-size: 1.5rem;
+        }
+
+        &.stats-number {
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+
+      div {
+        padding: 3rem 0;
+
+        &:nth-child(odd) {
+          background: $md-color;
+          color: $dark-color;
+        }
+        &:nth-child(even) {
+          background: $light-color;
+          color: $dark-color;
+        }
+      }
+    }
+  }
+
+  &-c {
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1.5rem;
+      text-align: center;
+
+      &-icon {
+        border-radius: 50%;
+        background: $md-color;
+        color: $light-color;
+        padding: 2rem;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        position: relative;
+        transition: all 0.5s;
+
+        &:hover {
+          background: $primary-color;
+          width: 90px;
+          height: 90px;
+          line-height: 90px;
+
+          .process-step {
+            background: $md-color;
+          }
+        }
+      }
+      &-step {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 28px;
+        background: $primary-color;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        line-height: 15px;
+        padding: 1rem;
+        transition: all 0.5s;
+      }
+    }
+  }
+}
+
+//About Sections
+
+#about {
+  &-a {
+    .about-info {
+      display: grid;
+      grid-template-areas:
+        "bioimage bio bio"
+        "aw-1 aw-2 aw-3";
+      grid-gap: 1.2rem;
+    }
+
+    //Grid Areas
+    .bio-image {
+      grid-area: bioimage;
+    }
+    .bio {
+      grid-area: bio;
+      border-left: 3px solid $primary-color;
+      padding: 0.8rem;
+      text-align: center;
+      align-content: center;
+    }
+    .award-1 {
+      grid-area: aw-1;
+    }
+    .award-2 {
+      grid-area: aw-2;
+    }
+    .award-3 {
+      grid-area: aw-3;
+    }
+
+    .award-1 .fas,
+    .award-2 .fas,
+    .award-3 .fas {
+      color: $secondary-color;
+      margin: 1rem;
+    }
+  }
+  &-b {
+    .progress {
+      overflow: hidden;
+      height: 20px;
+      background: $dark-color;
+      border-radius: 5px;
+      margin-bottom: 0.6rem;
+
+      div {
+        height: 100%;
+        color: #fff;
+        text-align: center;
+        background-color: $primary-color;
+      }
+    }
+  }
+  &-c {
+    .about-logos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2rem;
+
+      img {
+        width: 70%;
+      }
+    }
+  }
+  &-d {
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.5rem;
+
+      ul {
+        list-style: none;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+      }
+
+      p {
+        border: 1px solid $md-color;
+        border-radius: 5px;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+//CONTACT STYLES
+
+#contact {
+  &-a {
+    background: $light-color;
+    .text-fields {
+      display: grid;
+      grid-template-areas:
+        "name email"
+        "subject phone"
+        "message message";
+      grid-gap: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      .name-input {
+        grid-area: name;
+      }
+      .email-input {
+        grid-area: email;
+      }
+      .subject-input {
+        grid-area: subject;
+      }
+      .phone-input {
+        grid-area: phone;
+      }
+      .message-input {
+        grid-area: message;
+        height: 100px;
+      }
+
+      text-input {
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+      }
+    }
+    button[type="submit"] {
+      width: 50%;
+    }
+  }
+
+  &-b {
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+  }
+
+  &-c {
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+#main-footer {
+  text-align: center;
+  background-color: $md-color;
+  color: $dark-color;
+  height: 3rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    align-items: center;
+
+    .social .fab {
+      margin-right: 1rem;
+      border: 2px $dark-color solid;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      text-align: center;
+      padding: 0.5rem;
+
+      &:hover {
+        cursor: pointer;
+        background: $primary-color;
+      }
+    }
+  }
+}
+
+@import "media";
